@@ -1,0 +1,31 @@
+<% if @track.errors.any? %>
+  <ul>
+    <% @track.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<h1>Figure this shit out: </h1>
+<form method="post" action="/tracks">
+  <div>
+    <label>Title:</label>
+    <input type= "text" name="title" value = "<%= @track.title %>">
+  </div>
+  <div> 
+    <label>Artist:</label>
+    <input type = "text" name = "author" value = "<%= @track.author %>">
+  </div>
+  <div>
+    <label>URL:</label>
+    <input type = "text" name = "url" value = "<%= @track.url %>">
+  </div>
+  <div>
+    <input type = "hidden" name = "id" value ="<%= @track.id %>">
+  </div>
+  <div>
+    <input type="submit" value = "Submit">
+  </div>
+</form>
+<div>
+<a href = "/tracks/index">Back to listing </a>
+</div>

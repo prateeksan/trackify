@@ -1,0 +1,21 @@
+<h1>All Tracks</h1>
+
+<div class = "TrackList">
+  <% @tracks.each do |track| %>
+    <div class = "TrackListing">
+      <h4 id="ListingTitle"><%= track.id %>. <a href = <%= track.url %>><%= track.title %> </a><small>(By: <%= track.author %>)</small></h4>
+      <form method="post" action="/tracks/delete">
+        <input type="hidden" name="id" value="<%= track.id %>">
+        <input class="DeleteButton" type="submit" value="delete this track">
+      </form>
+      <form method="post" action="/tracks/edit">
+        <input type="hidden" name="id" value="<%= track.id %>">
+        <input class="DeleteButton" type="submit" value="edit this track">
+      </form>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <p><a href ="/tracks/new"> Add a track! </a></p>
+</div>
