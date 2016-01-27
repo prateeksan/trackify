@@ -1,7 +1,7 @@
-Sinatra
+Trackify
 =============
 
-Brought to you by Lighthouse Labs
+A simple link aggregator built for sharing music. Built entirely with Ruby on Sinatra.
 
 ## Getting Started
 
