@@ -1,0 +1,24 @@
+<% if @user.errors.any? %>
+  <ul class="alert-warning">
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<h2>Sign Up:</h2>
+<form method = "post" actions="/signup" role="form">
+  <div class="form-group">
+    <label>Username:</label>
+    <input name = "username" type = "text">
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input name = "password" type = "password">
+  </div>
+  <div class="form-group">
+    <input type = "submit" value = "Submit" class="btn btn-default">
+  </div>
+</form>
+
+
+

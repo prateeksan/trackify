@@ -421,12 +421,3 @@ td,
 th {
   padding: 0;
 }
-
-.DeleteButton {
-  font-size: 10px;
-  padding: 2px;
-  margin: 0 0 0 15px;
-}
-#ListingTitle {
-  margin-bottom: 5px;
-}

@@ -1,0 +1,48 @@
+body {
+   margin: 0;
+   background-image: url('../images/footer_lodyas.png');
+   background-size: 1440px 800px;
+   background-repeat:no-repeat;
+   display: compact;
+}
+.heading {
+  margin: 20px 0;
+  font-style: bold;
+}
+.homepage-heading {
+  text-align: center;
+  margin: 30px;
+  font-style: bold;
+}
+.homepage-links {
+  text-align: center;
+  margin: auto;
+}
+
+.add-track {
+  margin: 20px 0px;
+}
+
+.add-track-link {
+  font-style: bold;
+  color: red;  
+}
+
+.listing-button {
+  font-size: 10px;
+  padding: 2px 5px;
+  margin: 0 0 0 15px;
+}
+#ListingTitle {
+  margin-bottom: 5px;
+}
+
+.track-listing {
+  border: 2px dotted;
+  padding: 0 10px 15px 10px;
+  margin-bottom: 2px;
+}
+
+.jumbotron {
+  background-image: url('../images/notebook.png');
+}

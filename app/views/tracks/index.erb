@@ -1,21 +1,28 @@
-<h1>All Tracks</h1>
+<div class="container" class = "track-list">
+  <h2 class="heading">All Tracks</h2>
 
-<div class = "TrackList">
-  <% @tracks.each do |track| %>
-    <div class = "TrackListing">
-      <h4 id="ListingTitle"><%= track.id %>. <a href = <%= track.url %>><%= track.title %> </a><small>(By: <%= track.author %>)</small></h4>
-      <form method="post" action="/tracks/delete">
-        <input type="hidden" name="id" value="<%= track.id %>">
-        <input class="DeleteButton" type="submit" value="delete this track">
-      </form>
-      <form method="post" action="/tracks/edit">
-        <input type="hidden" name="id" value="<%= track.id %>">
-        <input class="DeleteButton" type="submit" value="edit this track">
-      </form>
-    </div>
-  <% end %>
-</div>
+  <div>
+    <% ordered_tracks = @tracks.order(:votes).reverse %>
+    <% ordered_tracks.each do |track| %>
+      <div class = "track-listing">
+        <h4 id="ListingTitle"><a href = <%= track.url %>><%= track.title %></a><small>  (By: <%= track.author %>)</small> <a href = "/upvote/<%= track.id%>"><i class="fa fa-thumbs-up"></i></a><sup><%= track.votes %></sup></h4>
+        <form method="post" action="/tracks/edit">
+          <input type="hidden" name="id" value="<%= track.id %>">
+          <input class="listing-button btn btn-primary" type="submit" value="edit this track">
+        </form>      
+        <form method="post" action="/tracks/delete">
+          <input type="hidden" name="id" value="<%= track.id %>">
+          <input class="listing-button btn btn-danger" type="submit" value="delete this track">
+        </form> 
+      </div>
+    <% end %>
+  </div>
 
-<div>
-  <p><a href ="/tracks/new"> Add a track! </a></p>
+  <div class = "add-track">
+    <h4><a class = "add-track-link" href ="/tracks/new"> Add a track! </a></h4>
+  </div>
+
+  <div>
+    <p><small>Welcome <strong><%= current_user.username %></strong>  |  <a href="/logout">Log Out</a></small></p>
+  </div>
 </div>
