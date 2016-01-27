@@ -111,3 +111,29 @@ post '/tracks/delete' do
   Track.find(params[:id]).destroy
   redirect '/tracks/index'
 end
+
+get '/tracks/:track_id/reviews' do 
+  redirect '/' unless current_user
+  @track = Track.find(params[:track_id])
+  erb :'/tracks/reviews/new'
+end
+
+post '/tracks/:track_id/reviews' do
+  @review = Review.new(
+    track_id: params[:track_id],
+    user_id: session[:user_id],
+    comments: params[:comments],
+    )
+  @track = Track.find(params[:track_id])
+  @track_reviews = Review.all.where(track_id: params[:track_id])
+  if @review.save
+    erb :'/tracks/reviews/index'
+  else
+    erb :'/tracks/reviews/new'
+  end
+end
+
+get '/tracks/:track_id/reviews/all' do
+  @track_reviews = Review.all.where(track_id: params[:track_id])
+  erb :'/tracks/reviews/index'
+end

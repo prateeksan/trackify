@@ -1,0 +1,12 @@
+<h2>Reviews Index</h2>
+<div class="container">
+  <% @track_reviews.each do |review| %>
+    <div class="track-listing">
+      <h4><small>By <%=User.find(review.user_id).username%> (Posted On: <%= review.created_at %>)</small>:</h4>
+      <h4><%= review.comments %></h5>
+    </div>
+  <% end %>
+</div>
+<div>
+  <p><small>Welcome <strong><%= current_user.username %></strong>  |  <a href="/logout">Log Out</a> |  <a href="/tracks/index"> Back to Tracks </a></small></p>
+</div>

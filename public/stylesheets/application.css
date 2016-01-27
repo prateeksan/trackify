@@ -46,3 +46,12 @@ body {
 .jumbotron {
   background-image: url('../images/notebook.png');
 }
+
+#review-box {
+  height: 40px;
+  width: 50%;
+  font-size: 12px;
+  padding 4px;
+  text-align: left;
+  vertical-align: top;
+}

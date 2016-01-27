@@ -1,0 +1,9 @@
+<h2>Write a review for <%= @track.title %> </h2>
+<form method="POST" action="/tracks/<%=@track.id%>/reviews" role="form">
+  <div class="form-group">
+    <input id="review-box" type="text" name="comments">
+  </div>
+  <div class="form-group">
+    <input class="btn-default" type="submit" value="Post Review">
+  </div>
+</form>

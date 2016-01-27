@@ -6,14 +6,17 @@
     <% ordered_tracks.each do |track| %>
       <div class = "track-listing">
         <h4 id="ListingTitle"><a href = <%= track.url %>><%= track.title %></a><small>  (By: <%= track.author %>)</small> <a href = "/upvote/<%= track.id%>"><i class="fa fa-thumbs-up"></i></a><sup><%= track.votes %></sup></h4>
-        <form method="post" action="/tracks/edit">
-          <input type="hidden" name="id" value="<%= track.id %>">
-          <input class="listing-button btn btn-primary" type="submit" value="edit this track">
-        </form>      
-        <form method="post" action="/tracks/delete">
-          <input type="hidden" name="id" value="<%= track.id %>">
-          <input class="listing-button btn btn-danger" type="submit" value="delete this track">
-        </form> 
+        <h5>Posted by <%= track.user ? track.user.username : "anonymous" %> on <%= track.created_at %>  |  <a href="/tracks/<%=track.id%>/reviews">Leave a Review</a>  |  <a href="/tracks/<%=track.id%>/reviews/all">All Reviews</a></h5>
+        <% if track.user_id == session[:user_id] %>
+          <form method="post" action="/tracks/edit">
+            <input type="hidden" name="id" value="<%= track.id %>">
+            <input class="listing-button btn btn-primary" type="submit" value="edit this track">
+          </form>     
+          <form method="post" action="/tracks/delete">
+            <input type="hidden" name="id" value="<%= track.id %>">
+            <input class="listing-button btn btn-danger" type="submit" value="delete this track">
+          </form> 
+        <% end %>
       </div>
     <% end %>
   </div>
